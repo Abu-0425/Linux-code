@@ -1,2 +1,2 @@
 test_fd:fd.c
-	gcc $^ -o $@
+	gcc $^ -o $@ -std=c99

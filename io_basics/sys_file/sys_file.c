@@ -11,7 +11,6 @@ int main()
     perror("open");
     return -1;
   }
-  printf("%d\n", O_RDWR | O_CREAT);
   printf("ret = %d\n", fd);
 
   char buf[] = "Linux is cool!";

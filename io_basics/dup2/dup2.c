@@ -10,6 +10,8 @@ int main()
     return -1;
   }
   printf("fd = %d\n", fd);
+  //oldfd:我们自己打开的文件的文件描述符
+  //newfd:想要更改其指向的文件描述符
   dup2(fd, 1);
 
   printf("It's dup2!!!\n");

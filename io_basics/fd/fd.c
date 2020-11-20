@@ -4,15 +4,22 @@
 
 int main()
 {
-  close(0);
-  int fd = open("./test", O_RDWR | O_CREAT, 0664);
-  if(fd < 0) {
-    perror("open");
-    return -1;
+  close(1);
+  int fd[3];
+  int i = 0;
+  for(; i < 3; i++) {
+    fd[i] = open("./linux", O_RDWR | O_CREAT, 0664);
+    if(fd[i] < 0) {
+      perror("open");
+      return -1;
+    }
+    printf("fd[%d] : %d\n", i, fd[i]);
+  } 
+  fflush(stdout);
+  i = 0;
+  for(; i < 3; i++) {
+    close(fd[i]);
   }
-  printf("O_RDWR | O_CREAT = %d\n", O_RDWR | O_CREAT);
-  printf("fd = %d\n", fd);
-  //文件描述符的分配原则为最小未占用原则
 
   return 0;
 }
